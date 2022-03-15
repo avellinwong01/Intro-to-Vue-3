@@ -21,6 +21,18 @@
             <h1>{{ product }}</h1>
             <p v-if="inStock">In Stock</p>
             <p v-else>Out of Stock</p>
+            <ul>
+              <!-- v-for works like a for loop, renders each element of the details array as a list item (collection we are iterating over) -->
+              <!-- detail: alias/element at given time of iteration -->
+              <li v-for="detail in details">{{detail}}</li>
+            </ul>
+            <!-- When iterating over using v-for, give each list item (DOM element) a unique key -->
+            <div v-for="variant in variants" :key="variant.id">{{variant.color}}</div>
+
+            <!-- Coding Challenge -->
+            <ul>
+              <li v-for="size in sizes">{{size}}</li>
+            </ul>
           </div>
         </div>
       </div>
