@@ -19,6 +19,22 @@
           </div>
           <div class="product-info">
             <h1>{{ product }}</h1>
+            <!-- Render the element in the DOM if the condition is true -->
+            <p v-if="inStock">In Stock</p>
+            <!-- Can just have v-if, don't necessarily need a fallback directive v-else-->
+            <p v-else>Out of Stock</p>
+
+            <!-- Alternative: v-show, to toggle elements' visibility. E.g. used for modals -->
+            <!-- <p v-show="inStock">In Stock</p>: if inStock is false, it'll add a style="display: none;"-->
+
+            <!-- More Complex Conditional Logic -->
+            <p v-if="inventory > 10">In Stock</p>
+            <p v-else-if="inventory <= 10 && inventory > 0">Almost sold out</p>
+            <p v-else>Out of Stock</p>
+
+            <!-- Coding Challenge -->
+            <p v-if="onSale">On Sale</p>
+            
           </div>
         </div>
       </div>
